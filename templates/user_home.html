@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Área do Usuário{% endblock %}
+
+{% block content %}
+<h1>Olá, {{ session.username }}!</h1>
+<p>Bem-vindo(a) à sua área pessoal.</p>
+
+<p>Aqui você pode:</p>
+<ul>
+    <li><a href="{{ url_for('music_page') }}">Gerenciar músicas</a></li>
+    <li><a href="{{ url_for('search_musica_page') }}">Buscar músicas</a></li>
+</ul>
+{% endblock %}

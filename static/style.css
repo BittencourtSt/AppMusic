@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+nav {
+    margin-bottom: 10px;
+}
+
+input, button {
+    margin-top: 5px;
+    display: block;
+}
+
+.mensagens {
+    color: red;
+    list-style-type: none;
+}

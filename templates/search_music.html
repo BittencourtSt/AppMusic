@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Buscar Músicas{% endblock %}
+
+{% block content %}
+<h1>Buscar Músicas</h1>
+<form method="POST" action="{{ url_for('search_musica') }}">
+    <input type="text" name="termo" placeholder="Título ou Artista" required>
+    <button type="submit">Buscar</button>
+</form>
+
+{% if termo %}
+    <h2>Resultados para: "{{ termo }}"</h2>
+    {% if musicas %}
+        <ul>
+            {% for musica in musicas %}
+                <li>"{{ musica.titulo }}" - {{ musica.artista }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhuma música encontrada.</p>
+    {% endif %}
+{% endif %}
+{% endblock %}

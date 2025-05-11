@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Minhas Músicas{% endblock %}
+
+{% block content %}
+<h1>Minhas Músicas</h1>
+
+<h2>Adicionar Música</h2>
+<form method="POST" action="{{ url_for('add_musica') }}">
+    <label for="titulo">Título:</label>
+    <input type="text" name="titulo" required><br>
+
+    <label for="artista">Artista:</label>
+    <input type="text" name="artista" required><br>
+
+    <button type="submit">Adicionar</button>
+</form>
+
+<h2>Lista de Músicas</h2>
+<ul>
+    {% for musica in musicas %}
+        <li>
+            "{{ musica['titulo'] }}" - {{ musica['artista'] }}
+            <form action="{{ url_for('remove_musica') }}" method="POST" style="display:inline;">
+                <input type="hidden" name="titulo" value="{{ musica['titulo'] }}">
+                <button type="submit">Remover</button>
+            </form>
+            <form action="{{ url_for('edit_musica') }}" method="POST" style="display:inline;">
+                <input type="hidden" name="old_titulo" value="{{ musica['titulo'] }}">
+                <input type="text" name="new_titulo" placeholder="Novo título" required>
+                <input type="text" name="new_artista" placeholder="Novo artista" required>
+                <button type="submit">Editar</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

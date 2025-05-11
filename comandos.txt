@@ -1,0 +1,5 @@
+python3 -m venv .venv (cria o ambiente)
+.venv\Scripts\activate (ativa o ambiente)
+pip install Flask (instala o flask)
+flask --app <nome-do-arquivo.py> run (roda o app)
+flask --app <nome-do-arquivo.py> run --debug (roda no modo debug)
